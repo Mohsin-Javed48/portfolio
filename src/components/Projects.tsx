@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink, FolderGit2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -19,10 +20,21 @@ export function Projects() {
               delay={(i % 2) * 0.1}
               className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
             >
-              {/* Image slot — replace with next/image once project screenshots are available */}
-              <div className="flex h-40 items-center justify-center border-b border-border bg-grid bg-background">
-                <FolderGit2 className="text-muted/50" size={36} />
-              </div>
+              {project.image ? (
+                <div className="relative h-40 overflow-hidden border-b border-border bg-background-secondary">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} screenshot`}
+                    fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <div className="flex h-40 items-center justify-center border-b border-border bg-grid bg-background">
+                  <FolderGit2 className="text-muted/50" size={36} />
+                </div>
+              )}
 
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-start justify-between gap-3">
