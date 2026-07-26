@@ -56,6 +56,7 @@ export type Project = {
   stack: string[];
   points: string[];
   liveUrl?: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -79,6 +80,7 @@ export const projects: Project[] = [
     period: "Mar 2026 – Apr 2026",
     stack: ["Next.js", "Nest.js", "Supabase"],
     liveUrl: "#",
+    image: "/projects/fulfillment-oms.png",
     points: [
       "Developed and maintained a fulfillment application streamlining order processing and real-time inventory tracking.",
       "Integrated FedEx sandbox APIs for automated shipping-label generation and workflow automation, reducing manual processing time.",
