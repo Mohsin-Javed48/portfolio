@@ -35,11 +35,20 @@ export function Skills() {
 
         <Reveal delay={0.2} className="mt-10 rounded-lg border border-border bg-background-elevated p-6">
           <h3 className="font-mono text-sm text-accent">Education</h3>
-          <p className="mt-3 text-foreground">{education.degree}</p>
-          <p className="mt-1 text-sm text-muted">
-            {education.school} · {education.period}
-          </p>
-          <p className="mt-1 text-sm text-muted">{education.detail}</p>
+          <div className="mt-4 space-y-5">
+            {education.map((entry) => (
+              <div key={entry.school} className="border-l-2 border-border pl-4">
+                <p className="text-foreground">{entry.degree}</p>
+                <p className="mt-1 text-sm text-muted">
+                  {entry.school}
+                  {entry.period ? ` · ${entry.period}` : ""}
+                </p>
+                {entry.detail && (
+                  <p className="mt-1 text-sm text-muted">{entry.detail}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </Reveal>
       </Container>
     </section>

@@ -136,12 +136,29 @@ export const skills = [
   },
 ];
 
-export const education = {
-  degree: "Bachelor of Science in Information Technology",
-  school: "University of the Punjab, Lahore",
-  period: "Jan 2022 – Jun 2025",
-  detail: "Coursework: Data Structures, Databases, Web Engineering · CGPA: 3.41 / 4.00",
+export type Education = {
+  degree: string;
+  school: string;
+  period?: string;
+  detail?: string;
 };
+
+export const education: Education[] = [
+  {
+    degree: "Bachelor of Science in Information Technology",
+    school: "University of the Punjab, Lahore",
+    period: "Jan 2022 – Jun 2025",
+    detail: "Coursework: Data Structures, Databases, Web Engineering · CGPA: 3.41 / 4.00",
+  },
+  {
+    degree: "Intermediate",
+    school: "Govt. College of Science, Wahdat Road, Lahore",
+  },
+  {
+    degree: "Matriculation",
+    school: "Punjab University Laboratory High School, Lahore",
+  },
+];
 
 export const navLinks = [
   { label: "About", href: "#about" },
