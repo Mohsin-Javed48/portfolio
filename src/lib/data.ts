@@ -57,6 +57,7 @@ export type Project = {
   points: string[];
   liveUrl?: string;
   image?: string;
+  credit?: string;
 };
 
 export const projects: Project[] = [
@@ -67,6 +68,8 @@ export const projects: Project[] = [
     period: "Oct 2025 – Jun 2026",
     stack: ["React.js", "Next.js", "REST APIs"],
     liveUrl: "#",
+    image: "/projects/nutricloudfr.png",
+    credit: "Professional Project – Developed at FrontendEx",
     points: [
       "Built and enhanced a state-level nutrition benefits portal enabling districts to manage programs, applications, and reporting workflows.",
       "Developed responsive UI components, multi-step form validation, and data-driven dashboards, reducing administrative processing effort.",
@@ -81,6 +84,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Nest.js", "Supabase"],
     liveUrl: "#",
     image: "/projects/fulfillment-oms.png",
+    credit: "Professional Project – Developed at FrontendEx",
     points: [
       "Developed and maintained a fulfillment application streamlining order processing and real-time inventory tracking.",
       "Integrated FedEx sandbox APIs for automated shipping-label generation and workflow automation, reducing manual processing time.",
@@ -92,6 +96,7 @@ export const projects: Project[] = [
     tagline: "AI-Assisted Point of Sale System",
     period: "Jan 2026 – Mar 2026",
     stack: ["Next.js", "Nest.js", "Supabase", "Redis", "Llama API"],
+    credit: "Professional Project – Developed at FrontendEx",
     points: [
       "Developed a centralized point-of-sale platform handling sales processing, inventory tracking, and vendor management, using Redis caching to speed up frequent product lookups.",
       "Integrated the Llama API to generate stock insights and vendor recommendations, cutting manual procurement effort through automated suggestions and real-time analytics.",
