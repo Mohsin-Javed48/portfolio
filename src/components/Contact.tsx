@@ -30,7 +30,7 @@ const links = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-28">
+    <section id="contact" className="bg-background-secondary py-28">
       <Container>
         <Reveal>
           <SectionHeading index="05" title="Contact" />
@@ -51,10 +51,12 @@ export function Contact() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-4 rounded-lg border border-border bg-background-elevated p-5 transition-colors hover:border-accent/40 hover:text-accent"
+              className="group flex items-center gap-4 rounded-2xl border border-border bg-background-elevated p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-md"
             >
-              <Icon className="text-accent" size={20} />
-              <span className="font-mono text-sm text-foreground">{label}</span>
+              <Icon className="text-muted transition-colors duration-200 group-hover:text-accent" size={20} />
+              <span className="font-mono text-sm text-foreground transition-colors duration-200 group-hover:text-accent">
+                {label}
+              </span>
             </a>
           ))}
         </Reveal>
