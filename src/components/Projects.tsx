@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExternalLink, FolderGit2 } from "lucide-react";
+import { Briefcase, ExternalLink, FolderGit2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -60,6 +60,13 @@ export function Projects() {
                 </div>
 
                 <p className="mt-2 font-mono text-xs text-muted">{project.period}</p>
+
+                {project.credit && (
+                  <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1 text-[11px] text-muted">
+                    <Briefcase size={12} className="text-accent" />
+                    {project.credit}
+                  </p>
+                )}
 
                 <ul className="mt-4 space-y-2 text-sm text-muted">
                   {project.points.map((point) => (
