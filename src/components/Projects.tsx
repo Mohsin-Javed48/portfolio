@@ -6,7 +6,7 @@ import { projects } from "@/lib/data";
 
 export function Projects() {
   return (
-    <section id="projects" className="py-28">
+    <section id="projects" className="bg-background-secondary py-28">
       <Container>
         <Reveal>
           <SectionHeading index="03" title="Projects" />
@@ -17,7 +17,7 @@ export function Projects() {
             <Reveal
               key={project.slug}
               delay={(i % 2) * 0.1}
-              className="group flex flex-col overflow-hidden rounded-lg border border-border bg-background-elevated transition-colors hover:border-accent/40"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
             >
               {/* Image slot — replace with next/image once project screenshots are available */}
               <div className="flex h-40 items-center justify-center border-b border-border bg-grid bg-background">
@@ -62,7 +62,7 @@ export function Projects() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-border px-2.5 py-1 font-mono text-[11px] text-muted"
+                      className="rounded-full border border-border bg-background-secondary px-2.5 py-1 font-mono text-[11px] text-muted"
                     >
                       {tech}
                     </span>

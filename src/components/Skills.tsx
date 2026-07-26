@@ -16,14 +16,14 @@ export function Skills() {
             <Reveal
               key={group.category}
               delay={(i % 3) * 0.08}
-              className="rounded-lg border border-border bg-background-elevated p-6"
+              className="rounded-2xl border border-border bg-background-elevated p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
             >
               <h3 className="font-mono text-sm text-accent">{group.category}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-muted"
+                    className="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs text-muted"
                   >
                     {item}
                   </span>
@@ -33,7 +33,7 @@ export function Skills() {
           ))}
         </div>
 
-        <Reveal delay={0.2} className="mt-10 rounded-lg border border-border bg-background-elevated p-6">
+        <Reveal delay={0.2} className="mt-10 rounded-2xl border border-border bg-background-elevated p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
           <h3 className="font-mono text-sm text-accent">Education</h3>
           <div className="mt-4 space-y-5">
             {education.map((entry) => (

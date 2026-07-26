@@ -5,7 +5,7 @@ import { profile, quickFacts } from "@/lib/data";
 
 export function About() {
   return (
-    <section id="about" className="py-28">
+    <section id="about" className="bg-background-secondary py-28">
       <Container>
         <Reveal>
           <SectionHeading index="01" title="About" />
@@ -17,7 +17,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1} className="md:col-span-2">
-            <dl className="space-y-5 rounded-lg border border-border bg-background-elevated p-6">
+            <dl className="space-y-5 rounded-2xl border border-border bg-background-elevated p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
               {quickFacts.map((fact) => (
                 <div key={fact.label}>
                   <dt className="font-mono text-xs uppercase tracking-wider text-accent">

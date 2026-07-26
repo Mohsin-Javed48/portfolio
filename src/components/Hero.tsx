@@ -12,8 +12,8 @@ export function Hero() {
       id="top"
       className="bg-grid relative flex min-h-screen flex-col justify-center overflow-hidden pt-24"
     >
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-accent/20 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-accent-2/20 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-accent/8 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-accent/5 blur-[140px]" />
 
       <Container className="relative">
         <motion.p
@@ -22,7 +22,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-5 font-mono text-sm text-accent"
         >
-          <span className="text-accent-2">$</span> whoami
+          <span className="text-accent">$</span> whoami
           <span className="cursor-blink">_</span>
         </motion.p>
 
@@ -69,13 +69,13 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="glow rounded-md bg-accent px-6 py-3 font-mono text-sm font-medium text-[#04121a] transition-transform hover:scale-[1.02]"
+            className="glow rounded-lg bg-accent px-6 py-3 font-mono text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md"
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className="rounded-md border border-border px-6 py-3 font-mono text-sm text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            className="rounded-lg border border-border bg-background px-6 py-3 font-mono text-sm text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-sm"
           >
             Get in Touch
           </a>

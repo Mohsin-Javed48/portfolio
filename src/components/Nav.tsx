@@ -17,8 +17,8 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 sm:px-8">
@@ -43,7 +43,7 @@ export function Nav() {
         <a
           href={profile.resumeUrl}
           download
-          className="hidden rounded-md border border-accent/40 px-4 py-2 font-mono text-sm text-accent transition-colors hover:bg-accent/10 md:inline-block"
+          className="hidden rounded-lg border border-accent/30 px-4 py-2 font-mono text-sm text-accent transition-all duration-200 hover:border-accent hover:bg-accent/5 hover:shadow-sm md:inline-block"
         >
           Resume
         </a>
@@ -75,7 +75,7 @@ export function Nav() {
               <a
                 href={profile.resumeUrl}
                 download
-                className="inline-block rounded-md border border-accent/40 px-4 py-2 font-mono text-sm text-accent"
+                className="inline-block rounded-lg border border-accent/30 px-4 py-2 font-mono text-sm text-accent"
               >
                 Resume
               </a>
