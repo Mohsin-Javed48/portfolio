@@ -56,8 +56,10 @@ export type Project = {
   stack: string[];
   points: string[];
   liveUrl?: string;
-  image?: string;
+  images?: string[];
   credit?: string;
+  repoUrl?: string;
+  hasDetailPage?: boolean;
 };
 
 export const projects: Project[] = [
@@ -68,8 +70,9 @@ export const projects: Project[] = [
     period: "Oct 2025 – Jun 2026",
     stack: ["React.js", "Next.js", "REST APIs"],
     liveUrl: "#",
-    image: "/projects/nutricloudfr.png",
+    images: ["/projects/Nutricloud/nutricloudfr.png"],
     credit: "Professional Project – Developed at FrontendEx",
+    hasDetailPage: false,
     points: [
       "Built and enhanced a state-level nutrition benefits portal enabling districts to manage programs, applications, and reporting workflows.",
       "Developed responsive UI components, multi-step form validation, and data-driven dashboards, reducing administrative processing effort.",
@@ -83,8 +86,9 @@ export const projects: Project[] = [
     period: "Mar 2026 – Apr 2026",
     stack: ["Next.js", "Nest.js", "Supabase"],
     liveUrl: "#",
-    image: "/projects/fulfillment-oms.png",
+    images: ["/projects/fulfillment/fulfillment-oms.png"],
     credit: "Professional Project – Developed at FrontendEx",
+    repoUrl: "https://github.com/Frontendxperts/fullfilment-app",
     points: [
       "Developed and maintained a fulfillment application streamlining order processing and real-time inventory tracking.",
       "Integrated FedEx sandbox APIs for automated shipping-label generation and workflow automation, reducing manual processing time.",
@@ -108,6 +112,7 @@ export const projects: Project[] = [
     tagline: "Real-Time Technician Booking Platform",
     period: "Sep 2024 – Apr 2025 · Final Year Project",
     stack: ["PostgreSQL", "Express.js", "React.js", "Node.js", "Socket.io"],
+    repoUrl: "https://github.com/Mohsin-Javed48/Helpify",
     points: [
       "Engineered an on-demand labor services platform on the PERN stack supporting 100+ concurrent users at 99.9% uptime.",
       "Implemented real-time price negotiation and emergency service prioritization via Socket.io, reducing average response time by 40%.",
@@ -168,9 +173,9 @@ export const education: Education[] = [
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Contact", href: "/#contact" },
 ];

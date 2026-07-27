@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { Briefcase, ExternalLink, FolderGit2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Briefcase, ExternalLink, FolderGit2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { GithubIcon } from "@/components/icons";
 import { projects } from "@/lib/data";
 
 export function Projects() {
@@ -20,10 +22,10 @@ export function Projects() {
               delay={(i % 2) * 0.1}
               className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
             >
-              {project.image ? (
+              {project.images?.[0] ? (
                 <div className="relative h-40 overflow-hidden border-b border-border bg-background-secondary">
                   <Image
-                    src={project.image}
+                    src={project.images[0]}
                     alt={`${project.name} screenshot`}
                     fill
                     sizes="(min-width: 640px) 50vw, 100vw"
@@ -46,17 +48,30 @@ export function Projects() {
                       {project.tagline}
                     </p>
                   </div>
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${project.name} live site`}
-                      className="shrink-0 text-muted transition-colors hover:text-accent"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
-                  )}
+                  <div className="flex shrink-0 items-center gap-3">
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} GitHub repo`}
+                        className="text-muted transition-colors hover:text-accent"
+                      >
+                        <GithubIcon size={18} />
+                      </a>
+                    )}
+                    {project.liveUrl && project.liveUrl !== "#" && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} live site`}
+                        className="text-muted transition-colors hover:text-accent"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <p className="mt-2 font-mono text-xs text-muted">{project.period}</p>
@@ -87,6 +102,16 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {project.hasDetailPage !== false && (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="mt-5 inline-flex w-fit items-center gap-1.5 font-mono text-sm text-accent transition-colors hover:text-accent-hover"
+                  >
+                    View Details
+                    <ArrowRight size={14} />
+                  </Link>
+                )}
               </div>
             </Reveal>
           ))}
