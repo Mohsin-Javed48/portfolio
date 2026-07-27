@@ -22,7 +22,7 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 sm:px-8">
-        <a href="#top" className="font-mono text-sm font-medium text-foreground">
+        <a href="/#top" className="font-mono text-sm font-medium text-foreground">
           <span className="text-accent">~/</span>
           {profile.name.toLowerCase().replace(" ", "-")}
         </a>
