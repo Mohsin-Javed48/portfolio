@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://mohsinjaved.dev";
+const siteUrl = "https://www.mohsin-javed.online";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

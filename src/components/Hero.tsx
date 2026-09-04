@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { HeroSlider } from "@/components/HeroSlider";
 import { profile } from "@/lib/data";
 
 export function Hero() {
@@ -16,98 +17,111 @@ export function Hero() {
       <div className="pointer-events-none absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-accent/5 blur-[140px]" />
 
       <Container className="relative">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-5 font-mono text-sm text-accent"
-        >
-          <span className="text-accent">$</span> whoami
-          <span className="cursor-blink">_</span>
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl"
-        >
-          {profile.name}
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-xl font-medium text-gradient sm:text-2xl"
-        >
-          {profile.title} · {profile.subtitle}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
-        >
-          Building full-stack web applications with{" "}
-          {profile.taglineWords.map((w, i) => (
-            <span key={w}>
-              <span className="font-mono text-foreground">{w}</span>
-              {i < profile.taglineWords.length - 1 ? ", " : ""}
-            </span>
-          ))}
-          — shipping production features for order management, point-of-sale,
-          and government benefits platforms.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#projects"
-            className="glow rounded-lg bg-accent px-6 py-3 font-mono text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="rounded-lg border border-border bg-background px-6 py-3 font-mono text-sm text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-sm"
-          >
-            Get in Touch
-          </a>
-
-          <div className="ml-2 flex items-center gap-4 text-muted">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="transition-colors hover:text-accent"
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-5 font-mono text-sm text-accent"
             >
-              <GithubIcon size={20} />
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="transition-colors hover:text-accent"
+              <span className="text-accent">$</span> whoami
+              <span className="cursor-blink">_</span>
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl"
             >
-              <LinkedinIcon size={20} />
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              aria-label="Email"
-              className="transition-colors hover:text-accent"
+              {profile.name}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-4 text-xl font-medium text-gradient sm:text-2xl"
             >
-              <Mail size={20} />
-            </a>
+              {profile.title} · {profile.subtitle}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+            >
+              Building full-stack web applications with{" "}
+              {profile.taglineWords.map((w, i) => (
+                <span key={w}>
+                  <span className="font-mono text-foreground">{w}</span>
+                  {i < profile.taglineWords.length - 1 ? ", " : ""}
+                </span>
+              ))}
+              — shipping production features for order management, point-of-sale,
+              and government benefits platforms.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-10 flex flex-wrap items-center gap-4"
+            >
+              <a
+                href="#projects"
+                className="glow rounded-lg bg-accent px-6 py-3 font-mono text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md"
+              >
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="rounded-lg border border-border bg-background px-6 py-3 font-mono text-sm text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-sm"
+              >
+                Get in Touch
+              </a>
+
+              <div className="ml-2 flex items-center gap-4 text-muted">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="transition-colors hover:text-accent"
+                >
+                  <GithubIcon size={20} />
+                </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="transition-colors hover:text-accent"
+                >
+                  <LinkedinIcon size={20} />
+                </a>
+                <a
+                  href={`mailto:${profile.email}`}
+                  aria-label="Email"
+                  className="transition-colors hover:text-accent"
+                >
+                  <Mail size={20} />
+                </a>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="hidden lg:block"
+          >
+            <HeroSlider />
+          </motion.div>
+        </div>
       </Container>
 
       <motion.a
