@@ -27,7 +27,7 @@ export function Nav() {
           {profile.name.toLowerCase().replace(" ", "-")}
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link, i) => (
             <li key={link.href}>
               <a
@@ -43,14 +43,14 @@ export function Nav() {
         <a
           href={profile.resumeUrl}
           download
-          className="hidden rounded-lg border border-accent/30 px-4 py-2 font-mono text-sm text-accent transition-all duration-200 hover:border-accent hover:bg-accent/5 hover:shadow-sm md:inline-block"
+          className="hidden rounded-lg border border-accent/30 px-4 py-2 font-mono text-sm text-accent transition-all duration-200 hover:border-accent hover:bg-accent/5 hover:shadow-sm lg:inline-block"
         >
           Resume
         </a>
 
         <button
           aria-label="Toggle menu"
-          className="text-foreground md:hidden"
+          className="text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -58,7 +58,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background px-6 pb-6 md:hidden">
+        <div className="border-t border-border bg-background px-6 pb-6 lg:hidden">
           <ul className="flex flex-col gap-4 pt-4">
             {navLinks.map((link, i) => (
               <li key={link.href}>
