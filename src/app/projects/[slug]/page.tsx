@@ -96,17 +96,6 @@ export default async function ProjectPage({
             </p>
           )}
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-border bg-background-secondary px-2.5 py-1 font-mono text-[11px] text-muted"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
           {project.images && project.images.length > 0 ? (
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {project.images.map((src) => (
@@ -130,16 +119,51 @@ export default async function ProjectPage({
             </div>
           )}
 
-          <div className="mt-12 max-w-3xl">
-            <h2 className="text-xl font-semibold text-foreground">Overview</h2>
-            <ul className="mt-5 space-y-3">
-              {project.points.map((point) => (
-                <li key={point} className="flex gap-3 text-muted">
-                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  <span className="leading-relaxed">{point}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-14 grid gap-12 lg:grid-cols-[2fr_1fr]">
+            <div className="space-y-10">
+              <div>
+                <h2 className="text-xl font-semibold text-foreground">Overview</h2>
+                {project.description && (
+                  <p className="mt-4 leading-relaxed text-muted">{project.description}</p>
+                )}
+                <ul className="mt-5 space-y-3">
+                  {project.points.map((point) => (
+                    <li key={point} className="flex gap-3 text-muted">
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span className="leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {project.approach && project.approach.length > 0 && (
+                <div>
+                  <h2 className="text-xl font-semibold text-foreground">Approach</h2>
+                  <ul className="mt-5 space-y-3">
+                    {project.approach.map((step) => (
+                      <li key={step} className="flex gap-3 text-muted">
+                        <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span className="leading-relaxed">{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-foreground">Technologies Used</h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border bg-background-secondary px-2.5 py-1 font-mono text-[11px] text-muted"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </main>

@@ -117,7 +117,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="hidden lg:block"
+            className="hidden min-w-0 lg:block"
           >
             <HeroSlider />
           </motion.div>

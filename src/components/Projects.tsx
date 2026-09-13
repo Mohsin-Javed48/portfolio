@@ -16,105 +16,118 @@ export function Projects() {
         </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((project, i) => (
-            <Reveal
-              key={project.slug}
-              delay={(i % 2) * 0.1}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
-            >
-              {project.images?.[0] ? (
-                <div className="relative h-40 overflow-hidden border-b border-border bg-background-secondary">
-                  <Image
-                    src={project.images[0]}
-                    alt={`${project.name} screenshot`}
-                    fill
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              ) : (
-                <div className="flex h-40 items-center justify-center border-b border-border bg-grid bg-background">
-                  <FolderGit2 className="text-muted/50" size={36} />
-                </div>
-              )}
+          {projects.map((project, i) => {
+            const hasDetailPage = project.hasDetailPage !== false;
+            const hasLiveUrl = project.liveUrl && project.liveUrl !== "#";
 
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {project.name}
-                    </h3>
-                    <p className="mt-0.5 font-mono text-xs text-accent">
-                      {project.tagline}
-                    </p>
-                  </div>
-                  <div className="flex shrink-0 items-center gap-3">
-                    {project.repoUrl && (
-                      <a
-                        href={project.repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.name} GitHub repo`}
-                        className="text-muted transition-colors hover:text-accent"
-                      >
-                        <GithubIcon size={18} />
-                      </a>
-                    )}
-                    {project.liveUrl && project.liveUrl !== "#" && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.name} live site`}
-                        className="text-muted transition-colors hover:text-accent"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <p className="mt-2 font-mono text-xs text-muted">{project.period}</p>
-
-                {project.credit && (
-                  <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1 text-[11px] text-muted">
-                    <Briefcase size={12} className="text-accent" />
-                    {project.credit}
-                  </p>
-                )}
-
-                <ul className="mt-4 space-y-2 text-sm text-muted">
-                  {project.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                      <span className="leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-border bg-background-secondary px-2.5 py-1 font-mono text-[11px] text-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {project.hasDetailPage !== false && (
+            return (
+              <Reveal
+                key={project.slug}
+                delay={(i % 2) * 0.1}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md"
+              >
+                {hasDetailPage && (
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="mt-5 inline-flex w-fit items-center gap-1.5 font-mono text-sm text-accent transition-colors hover:text-accent-hover"
-                  >
-                    View Details
-                    <ArrowRight size={14} />
-                  </Link>
+                    className="absolute inset-0 z-0"
+                    aria-label={`View details for ${project.name}`}
+                  />
                 )}
-              </div>
-            </Reveal>
-          ))}
+
+                {project.images?.[0] ? (
+                  <div className="relative h-40 overflow-hidden border-b border-border bg-background-secondary">
+                    <Image
+                      src={project.images[0]}
+                      alt={`${project.name} screenshot`}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-40 items-center justify-center border-b border-border bg-grid bg-background">
+                    <FolderGit2 className="text-muted/50" size={36} />
+                  </div>
+                )}
+
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {project.name}
+                      </h3>
+                      <p className="mt-0.5 font-mono text-xs text-accent">
+                        {project.tagline}
+                      </p>
+                    </div>
+                    <div className="relative z-10 flex shrink-0 items-center gap-3">
+                      {project.repoUrl && (
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} GitHub repo`}
+                          className="text-muted transition-colors hover:text-accent"
+                        >
+                          <GithubIcon size={18} />
+                        </a>
+                      )}
+                      {hasLiveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} live site`}
+                          className="text-muted transition-colors hover:text-accent"
+                        >
+                          <ExternalLink size={18} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="mt-2 font-mono text-xs text-muted">{project.period}</p>
+
+                  {project.credit && (
+                    <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1 text-[11px] text-muted">
+                      <Briefcase size={12} className="text-accent" />
+                      {project.credit}
+                    </p>
+                  )}
+
+                  <ul className="mt-4 space-y-2 text-sm text-muted">
+                    {project.points.map((point) => (
+                      <li key={point} className="flex gap-2">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-border bg-background-secondary px-2.5 py-1 font-mono text-[11px] text-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {hasDetailPage && (
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="relative z-10 mt-5 inline-flex w-fit items-center gap-1.5 font-mono text-sm text-accent transition-colors hover:text-accent-hover"
+                    >
+                      View Details
+                      <ArrowRight size={14} />
+                    </Link>
+                  )}
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Container>
     </section>

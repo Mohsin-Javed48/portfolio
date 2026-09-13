@@ -1,0 +1,12 @@
+import { chromium } from "playwright";
+const browser = await chromium.launch({ args: ["--no-proxy-server", "--proxy-bypass-list=*", "--proxy-server=direct://"] });
+const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const page = await context.newPage();
+page.on("console", (m) => { if (m.text().includes("[DEBUG]")) console.log(m.text()); });
+page.on("pageerror", (e) => console.log("[pageerror]", e.stack || e));
+await page.goto("http://localhost:3000/", { waitUntil: "load" });
+await page.waitForSelector("h1");
+await page.waitForTimeout(7000);
+await context.close();
+await browser.close();
+console.log("done");
